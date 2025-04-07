@@ -7,14 +7,13 @@ st.set_page_config(layout="wide")
 
 st.title("📈 Algo Trading Dashboard")
 
-# Sidebar Navigation
 option = st.sidebar.radio("Select a Strategy", (
     "SMA Crossover Backtest",
     "ETF Momentum Rotation",
     "Live Signal Monitor"
 ))
 
-# ==================== 1. SMA Crossover ====================
+
 if option == "SMA Crossover Backtest":
     st.header("SMA Crossover Strategy")
     ticker = st.text_input("Enter Stock Symbol", "AAPL")
@@ -44,7 +43,6 @@ if option == "SMA Crossover Backtest":
     except Exception:
         st.error("🚨 Oops! Something went wrong while fetching or calculating SMA crossover. Please check the ticker and try again.")
 
-# ==================== 2. ETF Momentum ====================
 elif option == "ETF Momentum Rotation":
     st.header("ETF Momentum Rotation")
     etfs_input = st.text_input("Enter ETF tickers (comma-separated)", "QQQ,SPY,IWM,EFA,EEM")
@@ -75,7 +73,6 @@ elif option == "ETF Momentum Rotation":
     except Exception:
         st.error("🚨 Failed to fetch or process ETF momentum data. Please verify the ticker symbols and your internet connection.")
 
-# ==================== 3. Live Signal Monitor ====================
 elif option == "Live Signal Monitor":
     st.header("Live Price Monitor + Signal")
     ticker = st.text_input("Stock Ticker", "AAPL")
